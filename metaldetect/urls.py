@@ -32,7 +32,7 @@ router.register(r'events', views.EventViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     
 ]
