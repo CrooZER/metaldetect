@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'location_field.apps.DefaultConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    }, 
 }
 
 
@@ -130,3 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+LOCATION_FIELD = {
+    'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
+    'provider.google.api_key': 'AIzaSyAgHu8elOUl6vp9DOP5T0B9Ysjey8c4G6E',
+    'provider.google.api_libraries': '',
+    'provider.google.map.type': 'SATELITE',
+}
