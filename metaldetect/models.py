@@ -29,7 +29,7 @@ class Period(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=250)
-    date = models.DateTimeField(null=True)
+    date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

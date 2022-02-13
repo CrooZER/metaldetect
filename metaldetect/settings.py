@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'metaldetect',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,5 +136,5 @@ LOCATION_FIELD = {
     'provider.google.api': '//maps.google.com/maps/api/js?sensor=false',
     'provider.google.api_key': 'AIzaSyAgHu8elOUl6vp9DOP5T0B9Ysjey8c4G6E',
     'provider.google.api_libraries': '',
-    'provider.google.map.type': 'SATELITE',
+    'provider.google.map.type': 'HYBRID',
 }
