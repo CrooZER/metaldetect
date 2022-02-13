@@ -61,6 +61,10 @@ class Artifact(models.Model):
         return self.name  
 
 
+class ArtifactPhoto(models.Model):
+    photo = models.ImageField(upload_to='artifacts')
+    description = models.CharField(max_length=250, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 
