@@ -36,8 +36,14 @@ class Event(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class AtrifactType(models.Model):
+    def __str__(self) -> str:
+        return self.name      
+
+class ArtifactType(models.Model):
     name = models.CharField(max_length=250)
+
+    def __str__(self) -> str:
+        return self.name  
 
     
 class Artifact(models.Model):
@@ -45,11 +51,14 @@ class Artifact(models.Model):
     description = models.CharField(max_length=1000, blank=True)
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
     period = models.ForeignKey(Period, on_delete=models.SET_NULL, null=True)
-    type = models.ForeignKey(AtrifactType, on_delete=models.SET_NULL, null=True)
+    type = models.ForeignKey(ArtifactType, on_delete=models.SET_NULL, null=True)
     year = models.CharField(max_length=20, null=True)
     nominal = models.CharField(max_length=20, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.name  
 
 
 
