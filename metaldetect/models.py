@@ -1,7 +1,4 @@
 from datetime import date
-from operator import mod
-from os import name
-from pyexpat import model
 from django.db import models
 from location_field.models.plain import PlainLocationField
 
@@ -45,6 +42,10 @@ class ArtifactType(models.Model):
     def __str__(self) -> str:
         return self.name  
 
+class ArtifactPhoto(models.Model):
+    photo = models.ImageField(upload_to='artifacts')
+    description = models.CharField(max_length=250, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     
 class Artifact(models.Model):
     name = models.CharField(max_length=250)
@@ -54,6 +55,7 @@ class Artifact(models.Model):
     type = models.ForeignKey(ArtifactType, on_delete=models.SET_NULL, null=True)
     year = models.CharField(max_length=20, null=True)
     nominal = models.CharField(max_length=20, null=True)
+    photos = models.ManyToManyField(ArtifactPhoto)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -61,10 +63,7 @@ class Artifact(models.Model):
         return self.name  
 
 
-class ArtifactPhoto(models.Model):
-    photo = models.ImageField(upload_to='artifacts')
-    description = models.CharField(max_length=250, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+
 
 
 
