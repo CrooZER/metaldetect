@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'metaldetect',
-    'grappelli',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,4 +137,13 @@ LOCATION_FIELD = {
     'provider.google.api_key': 'AIzaSyAgHu8elOUl6vp9DOP5T0B9Ysjey8c4G6E',
     'provider.google.api_libraries': '',
     'provider.google.map.type': 'HYBRID',
+}
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }

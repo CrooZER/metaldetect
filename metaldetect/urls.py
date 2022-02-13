@@ -15,12 +15,25 @@ Including another URLconf
 """
 from django import views
 from django.contrib import admin
+from rest_framework import routers
 from django.urls import path
 from django.conf.urls import include
 from . import views
 
+router = routers.DefaultRouter()
+router.register(r'artifacts', views.ArtifactViewSet)
+router.register(r'artifact-types', views.ArtifactTypeViewSet)
+router.register(r'artifact-photos', views.ArtifactPhotoViewSet)
+router.register(r'points', views.PointViewSet)
+router.register(r'point-groups', views.PointGroupViewSet)
+router.register(r'periods', views.PeriodViewSet)
+router.register(r'events', views.EventViewSet)
+
+
 urlpatterns = [
-    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
-    path('', views.index)
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
+    
 ]
+
